@@ -10,11 +10,12 @@ let url;
 galleryItems.map(galleryItem => {
     const elA = document.createElement('a');
     elA.classList.add('gallery__link');
-    elA.setAttribute('href', galleryItem.preview);
+    elA.setAttribute('href', galleryItem.original);
     
     const elImg = document.createElement('img');
     elImg.classList.add('gallery__image');
-    elImg.setAttribute('src', galleryItem.original);
+    elImg.setAttribute('src', galleryItem.preview);
+    elImg.setAttribute('data-src', galleryItem.original)
     elImg.setAttribute('alt', galleryItem.description);
 
     elA.appendChild(elImg);
@@ -42,7 +43,7 @@ refs.gallery.addEventListener('click', (e) => {
 function getUrlImg(e){
     e.preventDefault();
     const target = e.target;
-    url = target.getAttribute('src');
+    url = target.dataset.src;
 };
 
 
