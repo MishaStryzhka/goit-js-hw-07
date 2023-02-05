@@ -35,7 +35,7 @@ refs.gallery.addEventListener('click', (e) => {
             if(e.code === "Escape") {
                 closeModal(instance);
             };
-        });
+        },{ once: true });
     };
 });
 
